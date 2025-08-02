@@ -25,7 +25,7 @@ const HeroSection = () => {
           >
             <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 p-1">
               <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-4xl font-bold text-gray-600 dark:text-gray-300">
-                KP
+                <img src="propic.jpg" alt="Profile" className="w-full h-full rounded-full" />
               </div>
             </div>
             <motion.div

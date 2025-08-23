@@ -35,15 +35,15 @@ const CertificationsSection = () => {
 
   const achievements = [
     {
-      title: "University Academic Performance",
-      description: "Maintaining excellent academic standing in IT program",
-      metric: "Dean's List",
-      icon: "🎓"
+      title: "2nd Runner-Up - Hackelite 1.0",
+      description: "Organized by IEEE WIE Student Branch – University of Moratuwa",
+      metric: "2nd Runner-Up",
+      icon: "🌟"
     },
     {
-      title: "Open Source Contributions",
-      description: "Active contributor to various development projects",
-      metric: "5+ Repos",
+      title: "SLIOT",
+      description: "Finalists in SLIOT - Organized by CS Engineering, University of Moratuwa, SLT-Mobitel, Institute of Engineers Sri Lanka (IESL)",
+      metric: "Finalists",
       icon: "🌟"
     },
     {

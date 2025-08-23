@@ -79,14 +79,16 @@ const HeroSection = () => {
               <FiArrowDown className="animate-bounce" />
             </motion.button>
             
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)" }}
               whileTap={{ scale: 0.95 }}
+              href="/kaveesha_prabuddhi.pdf"
+              download
               className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white font-semibold rounded-full shadow-lg border-2 border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 flex items-center gap-2"
             >
               <FiDownload />
               Download CV
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           {/* Floating Elements */}

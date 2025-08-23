@@ -16,15 +16,15 @@ const ProjectsSection = () => {
       image: "🌾"
     },
     {
-      title: "RuralPay Prototype",
-      description: "An innovative offline FinTech wallet solution using Bluetooth/NFC technology for peer-to-peer transactions in rural areas without internet connectivity.",
-      longDescription: "Designed to solve financial inclusion challenges in remote areas by enabling offline digital payments through proximity-based technologies.",
-      tech: ["React Native", "Node.js", "MongoDB", "NFC API", "Bluetooth"],
-      link: "#",
-      github: "#",
+      title: "E-Commerce Platform",
+      description: "Developed a full stack ecommerce application for botique shop",
+      longDescription:"Designed to provide shopping experience for customers in a boutique setting.",
+      tech: ["Laravel","Xampp","MySql","CSS","JavaScript","HTML"],
+      link: "https://github.com/kavi-234/E-commerce_Platform",
+      github: "https://github.com/kavi-234/E-commerce_Platform",
       icon: <FiSmartphone className="text-2xl" />,
       color: "from-blue-500 to-cyan-500",
-      image: "💳"
+  image: <img src="/Ecommerce.png" alt="E-Commerce" className="w-16 h-16 object-contain mx-auto" />
     },
     {
       title: "Polly Pipe Database System",

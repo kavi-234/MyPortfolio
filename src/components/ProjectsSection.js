@@ -5,37 +5,70 @@ import { FiExternalLink, FiGithub, FiCode, FiSmartphone, FiDatabase } from 'reac
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Farm to Market Software",
-      description: "A comprehensive farm-to-market platform connecting farmers, merchants, and transporters directly. Features real-time chat, bidding system, and role-based access control using Auth0.",
-      longDescription: "Built with modern web technologies to streamline agricultural supply chains. Includes real-time messaging, price negotiations, and secure authentication.",
-      tech: ["React", "Node.js", "MongoDB", "Express", "WebSockets", "Auth0"],
-      link: "https://github.com/kavi-234/harvest-software",
-      github: "https://github.com/kavi-234/harvest-software",
+      title: "Machinery Sales and Inventory Management System",
+      description: "Web-based platform for machinery sales and inventory management for Paam Enterprises, Sri Lanka.",
+      longDescription: "Features inventory management, product listings, customer interface for buying/purchasing machinery, and admin tools for managing orders, sales, and inquiries.",
+      tech: ["React", "Node.js", "Express.js", "MongoDB", "AWS"],
+      link: "#",
+      github: "#",
       icon: <FiCode className="text-2xl" />,
+      color: "from-yellow-500 to-orange-500",
+      image: "🛠️"
+    },
+    {
+      title: "Farm-to-Market (Harvest Bidding & Transport Management System)",
+      description: "Full-stack platform for farmers and merchants to manage harvest bidding and transport.",
+      longDescription: "Real-time bidding using Socket.io, integrated PayHere for secure payments, and geolocation-enabled transport coordination.",
+      tech: ["React", "Node.js", "Express.js", "MongoDB", "PayHere", "Socket.io", "Geolocation API"],
+      link: "#",
+      github: "#",
+      icon: <FiSmartphone className="text-2xl" />,
       color: "from-green-500 to-emerald-500",
       image: "🌾"
     },
     {
-      title: "E-Commerce Platform",
-      description: "Developed a full stack ecommerce application for botique shop",
-      longDescription:"Designed to provide shopping experience for customers in a boutique setting.",
-      tech: ["Laravel","Xampp","MySql","CSS","JavaScript","HTML"],
-      link: "https://github.com/kavi-234/E-commerce_Platform",
-      github: "https://github.com/kavi-234/E-commerce_Platform",
-      icon: <FiSmartphone className="text-2xl" />,
-      color: "from-blue-500 to-cyan-500",
-  image: <img src="/Ecommerce.png" alt="E-Commerce" className="w-16 h-16 object-contain mx-auto" />
-    },
-    {
-      title: "Polly Pipe Database System",
-      description: "A complete database system and user interface for an aquarium installation company, featuring ER modeling, normalization, and comprehensive UI wireframes.",
-      longDescription: "Comprehensive database design project including entity-relationship modeling, database normalization, and user interface design for business management.",
-      tech: ["MySQL", "SQL Triggers", "Stored Procedures", "Database Design"],
+      title: "Melody Mart – Online Musical Instrument Store",
+      description: "Web-based platform for buying and selling musical instruments.",
+      longDescription: "Includes product browsing, secure online payments, order tracking, and real-time notifications.",
+      tech: ["React", "Node.js", "Express.js", "MongoDB", "Audio", "PayHere", "Socket.io"],
       link: "#",
       github: "#",
       icon: <FiDatabase className="text-2xl" />,
       color: "from-purple-500 to-pink-500",
-      image: "🐠"
+      image: "�"
+    },
+    {
+      title: "E-Commerce Platform",
+      description: "Web-based Ecommerce platform developed with Laravel.",
+      longDescription: "Boutique shop platform with user authentication, product management, and order processing.",
+      tech: ["Laravel", "XAMPP", "MySQL", "HTML", "CSS", "JavaScript"],
+      link: "#",
+      github: "#",
+      icon: <FiSmartphone className="text-2xl" />,
+      color: "from-blue-500 to-cyan-500",
+      image: <img src="/Ecommerce.png" alt="E-Commerce" className="w-16 h-16 object-contain mx-auto" />
+    },
+    {
+      title: "Water Intake Tracker",
+      description: "Reminds users to stay hydrated by tracking daily water intake goals and progress.",
+      longDescription: "Simple React app using local storage to save user progress and goals.",
+      tech: ["React", "JavaScript", "CSS", "LocalStorage"],
+      link: "#",
+      github: "#",
+      icon: <FiCode className="text-2xl" />,
+      color: "from-cyan-500 to-blue-500",
+      image: "💧"
+    },
+    {
+      title: "NovaNex (Automated Weighing and Packing System)",
+      description: "Automated system for weighing, dispensing, and packing goods using sensors and stepper motors.",
+      longDescription: "Designed for real-time solid agricultural product handling. Finalist in SLIOT Academic Team Project.",
+      tech: ["Arduino", "Nema23", "Load Cell Sensor", "Servo Motors", "C++"],
+      link: "#",
+      github: "#",
+      icon: <FiDatabase className="text-2xl" />,
+      color: "from-gray-500 to-gray-700",
+      image: "�"
     }
   ];
 

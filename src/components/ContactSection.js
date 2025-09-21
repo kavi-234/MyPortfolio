@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiGithub, FiLinkedin, FiSend, FiMapPin, FiPhone } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const handleChange = (e) => {
     setFormData({
@@ -20,23 +22,58 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
     
-    // Simulate form submission
-    setTimeout(() => {
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      alert('Please fill in all fields.');
       setIsSubmitting(false);
+      return;
+    }
+    
+    try {
+      // Initialize EmailJS (you'll need to add your public key here)
+      emailjs.init('YOUR_PUBLIC_KEY');
+      
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your Service ID
+        'YOUR_TEMPLATE_ID', // Replace with your Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'prabuddhiahk.22@uom.lk',
+          reply_to: formData.email
+        }
+      );
+      
+      console.log('Email sent successfully:', result);
       setFormData({ name: '', email: '', message: '' });
-      alert('Thank you for your message! I\'ll get back to you soon.');
-    }, 2000);
+      setSubmitStatus('success');
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+      
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setSubmitStatus('error');
+      
+      // Hide error message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialLinks = [
     {
       name: 'Email',
       icon: <FiMail className="text-2xl" />,
-      href: 'mailto:kavisha@example.com',
+      href: 'mailto:prabuddhiahk.22@uom.lk',
       color: 'from-red-500 to-pink-500',
       hoverColor: 'hover:bg-red-50 dark:hover:bg-red-900/20',
-      label: 'kavisha@example.com'
+      label: 'prabuddhiahk.22@uom.lk'
     },
     {
       name: 'GitHub',
@@ -65,7 +102,7 @@ const ContactSection = () => {
     {
       icon: <FiMail className="text-xl" />,
       label: 'Email',
-      value: 'kavisha@example.com'
+      value: 'prabuddhiahk.22@uom.lk'
     },
     {
       icon: <FiPhone className="text-xl" />,
@@ -261,6 +298,27 @@ const ContactSection = () => {
               </motion.button>
             </form>
 
+            {/* Success/Error Messages */}
+            {submitStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 p-4 bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-700 rounded-xl text-green-800 dark:text-green-200 text-center"
+              >
+                ✅ Thank you for your message! I'll get back to you within 24-48 hours.
+              </motion.div>
+            )}
+            
+            {submitStatus === 'error' && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 p-4 bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 rounded-xl text-red-800 dark:text-red-200 text-center"
+              >
+                ❌ Sorry, there was an error sending your message. Please try again or contact me directly at prabuddhiahk.22@uom.lk
+              </motion.div>
+            )}
+
             <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
               <p className="text-center text-sm text-gray-600 dark:text-gray-400">
                 Expected response time: <span className="font-semibold text-blue-600 dark:text-blue-400">24-48 hours</span>
@@ -286,7 +344,7 @@ const ContactSection = () => {
               to your team's success while growing my skills.
             </p>
             <motion.a
-              href="mailto:kavisha@example.com"
+              href="mailto:prabuddhiahk.22@uom.lk"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300"

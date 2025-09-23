@@ -27,17 +27,22 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-lg border-b border-slate-200/50 dark:border-slate-700/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Modern Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-xl font-bold text-gray-800 dark:text-white cursor-pointer"
+            className="flex items-center space-x-3 cursor-pointer group"
             onClick={() => scrollToSection('#home')}
           >
-            Kaveesha Prabuddhi
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-lg group-hover:shadow-lg transition-all duration-300">
+              K
+            </div>
+            <span className="text-xl font-black bg-gradient-to-r from-slate-800 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+              Kaveesha
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -45,12 +50,13 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+                className="relative text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 font-semibold px-4 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/50 group"
               >
                 {item.name}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:w-full transition-all duration-300"></div>
               </motion.button>
             ))}
             

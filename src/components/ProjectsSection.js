@@ -100,8 +100,14 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/30 dark:from-slate-900 dark:via-blue-950/30 dark:to-cyan-950/30 relative overflow-hidden">
+      {/* Modern Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-20 w-40 h-40 bg-blue-200/20 dark:bg-blue-800/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-20 w-60 h-60 bg-cyan-200/20 dark:bg-cyan-800/20 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,13 +115,13 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-slate-900 via-blue-600 to-cyan-500 dark:from-white dark:via-blue-400 dark:to-cyan-300 bg-clip-text text-transparent mb-6">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Here are some of the projects I've worked on, showcasing my skills in full-stack development, 
-            database design, and innovative problem-solving.
+          <div className="w-32 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 mx-auto mb-8 rounded-full"></div>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            Explore my portfolio of innovative solutions, from full-stack web applications to IoT systems. 
+            Each project represents a unique challenge solved with modern technologies and creative problem-solving.
           </p>
         </motion.div>
 
@@ -135,7 +141,7 @@ const ProjectsSection = () => {
                 rotateY: 5,
                 transition: { duration: 0.3 }
               }}
-              className="group relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500"
+              className="group relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-cyan-500/10 transition-all duration-500"
             >
               {/* Project Header */}
               <div className={`h-32 bg-gradient-to-r ${project.color} flex items-center justify-center relative overflow-hidden`}>

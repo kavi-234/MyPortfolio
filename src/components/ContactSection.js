@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiGithub, FiLinkedin, FiSend, FiMapPin, FiPhone } from 'react-icons/fi';
-import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -32,28 +31,31 @@ const ContactSection = () => {
     }
     
     try {
-      // Initialize EmailJS (you'll need to add your public key here)
-      emailjs.init('YOUR_PUBLIC_KEY');
-      
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your Service ID
-        'YOUR_TEMPLATE_ID', // Replace with your Template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
+      // Using Formspree - simple form handling service
+      const response = await fetch('https://formspree.io/f/xanpyyvg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
           message: formData.message,
-          to_email: 'prabuddhiahk.22@uom.lk',
-          reply_to: formData.email
-        }
-      );
+          _replyto: formData.email,
+          _subject: `Portfolio Contact from ${formData.name}`
+        }),
+      });
       
-      console.log('Email sent successfully:', result);
-      setFormData({ name: '', email: '', message: '' });
-      setSubmitStatus('success');
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
+      if (response.ok) {
+        console.log('Email sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+        setSubmitStatus('success');
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => setSubmitStatus(null), 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
       
     } catch (error) {
       console.error('Failed to send email:', error);

@@ -13,7 +13,7 @@ const ProjectsSection = () => {
       github: "#",
       icon: <FiCode className="text-2xl" />,
       color: "from-yellow-500 to-orange-500",
-      image: "🛠️"
+      image: "🏭"
     },
     {
       title: "Farm-to-Market (Harvest Bidding & Transport Management System)",
@@ -24,7 +24,7 @@ const ProjectsSection = () => {
       github: "#",
       icon: <FiSmartphone className="text-2xl" />,
       color: "from-green-500 to-emerald-500",
-      image: "🌾"
+      image: <img src="/Farm_to_Market.png" alt="Farm-to-Market" className="w-16 h-16 object-contain mx-auto" />
     },
     {
       title: "Melody Mart – Online Musical Instrument Store",
@@ -35,7 +35,7 @@ const ProjectsSection = () => {
       github: "#",
       icon: <FiDatabase className="text-2xl" />,
       color: "from-purple-500 to-pink-500",
-      image: "�"
+      image: <img src="/MelodyMart.png" alt="Melody Mart" className="w-16 h-16 object-contain mx-auto" />
     },
     {
       title: "E-Commerce Platform",
@@ -68,7 +68,7 @@ const ProjectsSection = () => {
       github: "#",
       icon: <FiDatabase className="text-2xl" />,
       color: "from-gray-500 to-gray-700",
-      image: "�"
+      image: <img src="/NovaNex.png" alt="NovaNex" className="w-16 h-16 object-contain mx-auto" />
     }
   ];
 
@@ -144,17 +144,35 @@ const ProjectsSection = () => {
               className="group relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-cyan-500/10 transition-all duration-500"
             >
               {/* Project Header */}
-              <div className={`h-32 bg-gradient-to-r ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                <div className="text-6xl opacity-20 absolute -top-4 -right-4">
-                  {project.image}
+              <div className="relative h-48 overflow-hidden">
+                {/* Background Image or Gradient */}
+                {typeof project.image === 'string' ? (
+                  <div className={`h-full bg-gradient-to-br ${project.color} flex items-center justify-center relative`}>
+                    <div className="text-8xl text-white/80">
+                      {project.image}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="relative h-full bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+                    {React.cloneElement(project.image, {
+                      className: "w-full h-full object-cover"
+                    })}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20`}></div>
+                  </div>
+                )}
+                
+                {/* Tech Icon Badge */}
+                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md rounded-full p-3 border border-white/30">
+                  <div className="text-white text-xl">
+                    {project.icon}
+                  </div>
                 </div>
-                <div className="text-white z-10">
-                  {project.icon}
-                </div>
+                
+                {/* Hover Overlay */}
                 <motion.div
-                  className="absolute inset-0 bg-black/20"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
+                  className="absolute inset-0 bg-black/30"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 />
               </div>
